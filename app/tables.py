@@ -15,6 +15,7 @@ class Message(Base):
     sent_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text
                      ('NOW()'))
     
+    
 class User(Base):
     __tablename__ = "Users"
 
