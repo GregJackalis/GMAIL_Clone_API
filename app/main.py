@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routers import messages
+from .routers import messages, users
 from .database import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -19,3 +19,4 @@ api.add_middleware(
 Base.metadata.create_all(bind=engine)
 
 api.include_router(messages.router)
+api.include_router(users.router)
