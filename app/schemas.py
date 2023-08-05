@@ -1,6 +1,13 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
+class UserCreateResponseModel(BaseModel):
+    username: str
+    id: int
+    
+    class Config:
+            orm_mode = True
+
 class sendMessageInput(BaseModel):
     from_user : str
     to_user : str
@@ -13,6 +20,3 @@ class getMessage(sendMessageInput):
 class UserCreateInput(BaseModel):
     username: str
     password: str
-
-class UserCreateResponseModel(BaseModel):
-    username: str
