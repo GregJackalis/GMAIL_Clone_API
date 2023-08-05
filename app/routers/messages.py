@@ -23,7 +23,8 @@ def show_inbox(database: Session = Depends(connect_to_database)):
 
     serializable_Data = [
         {
-            "username": message.username,
+            "from": message.from_user,
+            "to": message.to_user,
             "message_title": message.title,
             "content": message.content,
             "sent_at": message.sent_at
