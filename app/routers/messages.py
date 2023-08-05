@@ -35,7 +35,7 @@ def show_inbox(database: Session = Depends(connect_to_database)):
     return serializable_Data
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model = schemas.getMessage)
-def creating_message(message: schemas.sendMessage, database: Session = Depends(connect_to_database)):
+def creating_message(message: schemas.sendMessageInput, database: Session = Depends(connect_to_database)):
     new_message = tables.Message(**message.dict())
     
     database.add(new_message)

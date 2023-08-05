@@ -1,15 +1,18 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
-class sendMessage(BaseModel):
+class sendMessageInput(BaseModel):
     from_user : str
     to_user : str
     title: str
     content: str
 
-class getMessage(sendMessage):
+class getMessage(sendMessageInput):
     sent_at: datetime
 
-class UserCreate(BaseModel):
+class UserCreateInput(BaseModel):
     username: str
     password: str
+
+class UserCreateResponseModel(BaseModel):
+    username: str
