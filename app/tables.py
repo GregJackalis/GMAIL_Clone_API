@@ -14,3 +14,11 @@ class Message(Base):
     content = Column(String, nullable=False)
     sent_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text
                      ('NOW()'))
+    
+class User(Base):
+    __tablename__ = "Users"
+
+    id = Column(String, nullable= False, primary_key=True)
+    email = Column(String, nullable=False, unique=True)
+    password = Column(String, nullable=False)
+
