@@ -9,7 +9,8 @@ class Message(Base):
     __tablename__ = "Inbox"
 
     id = Column(Integer, primary_key=True, nullable=False)
-    username = Column(String, nullable=False)
+    from_user = Column(String, nullable=False)
+    to_user = Column(String, nullable=False)
     title = Column(String, nullable=False)
     content = Column(String, nullable=False)
     sent_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text
@@ -20,5 +21,5 @@ class User(Base):
     __tablename__ = "Users"
 
     id = Column(Integer, nullable= False, primary_key=True)
-    email = Column(String, nullable=False, unique=True)
+    username = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)

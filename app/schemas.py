@@ -8,3 +8,7 @@ class sendMessage(BaseModel):
 
 class getMessage(BaseModel):
     sent_at: datetime
+
+class UserCreate(BaseModel):
+    username: str
+    password: str
