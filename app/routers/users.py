@@ -5,7 +5,7 @@ from ..database import connect_to_database
 
 router = APIRouter()
 
-@router.post("/create_User", status_code=status.HTTP_201_CREATED)
+@router.post("/create_User", status_code=status.HTTP_201_CREATED, response_model=schemas.UserCreateResponseModel)
 def create_user(input: schemas.UserCreateInput, database: Session = Depends(connect_to_database)):
 
     #hash the given password first

@@ -9,10 +9,13 @@ router = APIRouter()
 def login(input: OAuth2PasswordRequestForm = Depends(), database : Session = Depends(database.connect_to_database)):
     
     #sql code with sqlachemy: checking if there is a user in the database same with the given username 
-    user = database.query(tables.User).filter(input.username == tables.User.username).first
+    print("Before")
+    user = database.query(tables.User).filter(input.username == tables.User.username).first()
 
+    print("After")
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid Login Credentials")
     if not utils.verify_password(input.password, user.password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid Password")
     
+    return {"message" : "successfully logged in"}

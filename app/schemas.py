@@ -3,10 +3,10 @@ from datetime import datetime
 
 class UserCreateResponseModel(BaseModel):
     username: str
-    id: int
+    password: str
     
     class Config:
-            orm_mode = True
+            from_attributes = True
 
 class sendMessageInput(BaseModel):
     from_user : str
