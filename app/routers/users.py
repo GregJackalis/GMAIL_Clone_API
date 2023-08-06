@@ -25,5 +25,4 @@ def create_user(input: schemas.UserCreateInput, database: Session = Depends(conn
 
 
     ##SINCE I haven't fixed the response model problem, I'm returning the user's info without the password like this
-    return {"user was created": f"""username: {new_user.username},
-            id: {new_user.id}"""}
+    return new_user
