@@ -17,6 +17,6 @@ class sendMessageInput(BaseModel):
 class getMessage(sendMessageInput):
     sent_at: datetime
 
-class UserCreateInput(BaseModel):
+class User_Create_and_Login_Input(BaseModel):
     username: str
     password: str
